@@ -207,7 +207,7 @@
   * ::before
   * ::selection 
 
-## CSS Units
+### CSS Units
 
 * px
 * % - 부모요소의 의해 상속된 사이즈의 %
@@ -219,7 +219,7 @@
   * vmin - smaller than width min or height min %
   * vmax - bigger than width max or height max %
 
-## CSS Box Model
+### CSS Box Model
 
 * width / height - 기본적 box-sizing : content box. border-box = content + border + padding
 
@@ -254,9 +254,9 @@
     }
     ```
 
-## CSS Display
+### CSS Display
 
-### display
+#### display
 
 * block
   * 항상 새로운 라인에서 시작
@@ -272,20 +272,20 @@
   * 연속해서 사용하는 경우, 좌우에 정의되지 않은 space(4px)가 지정된다. [회피방벙](https://css-tricks.com/almanac/properties/d/display/)
 * none
 
-### Visibility
+#### Visibility
 
 * visible (default)
 * hidden : 보이지 않게. 공간차지
 * collapse : table요소에서 사용하며 행이나 열을 보이지 않게 한다.
 * none : 보이지 않게. 공간차지 X (ie,ff에서만 동작. chrome에서는 hidden과 같이 동작)
 
-### Opacity
+#### Opacity
 
 * 0.0 ~ 1.0 
 
-## CSS Background
+### CSS Background
 
-### background-image
+#### background-image
 
 여러개 지정가능. 먼저 설정한 이미지가 전면에 출력.
 
@@ -296,7 +296,7 @@ body {
 }
 ```
 
-### background-repeat
+#### background-repeat
 
 기본 속성 : repeat
 
@@ -304,7 +304,7 @@ body {
 * repeat-y
 * no-repeat
 
-### background-size
+#### background-size
 
 * px : `background-size: 700px 500px;`
 * %
@@ -321,20 +321,20 @@ body {
 }
 ```
 
-### background-attachment
+#### background-attachment
 
 `background-attachment: fixed  /* 배경이미지는 스크롤 되지 않게 함. */`
 
-### background-position
+#### background-position
 
 * top, bottom, center, left, right, 25%, 10px 0 px
 
-### background-color
+#### background-color
 
 * rgb(0,0,0)
 * transparent
 
-### background
+#### background
 
 ```css
 /* background: color || image || repeat || attachment || position */
@@ -343,7 +343,68 @@ width: 50vw;
 height: 300px;
 ```
 
-## CSS Font & Text
+### CSS3 Font & Text
 
-### font-size
+* font-size : px, em, %, small, large
+* font-family 
+* font-style / font-weight : italic, bold, 900, lighter
+* line-height : 행 높이 지정. 수직 정렬(부모 요소와 height를 같게)에도 이용.
+* letter-spacing : 글자 간격 지정.
+* text-align : 수평정렬. a 요소는 inline요소이기 때문에 중앙 정렬이 적용되지 않는다.
+* text-decoration : underline, overline, line-through
+* white-space : 공백, 들여쓰기, 줄바꿈을 의미.
+  * normal
+  * nowrap
+  * pre
+  * pre-wrap
+  * pre-line
+* text-overflow : 영역이 벗어난 텍스트의 처리방법
+  * 조건
+    * overflow 속성에 반드시 visible 이외의 값
+    * width 속성. 필요한 경우 block 속성으로 변경.
+    * 줄바꿈을 방지하려면 white-space: nowrap
+  * clip : 넘치는 부분 안보이게
+  * ellipsis : 넘치는 부분 …으로 표시
+* word-wrap : 한 단어의 길이가 넘치는 경우. 단어를 고려하여 개행(,-등)
+* word-break : 한 단어의 길이가 넘치는 경우. 단어를 부모영역에 맞추어 개행.
+* font
+
+```css
+/* font : font-style(optional) font-variant(optional) font-weight(optional) font-size(mandatory) line-height(optional) font-family(mandatory) */
+
+/* size | family */
+font: 2em "Open Sans", sans-serif;
+
+/* style | size | family */
+font: italic 2em "Open Sans", sans-serif;
+
+/* style | variant | weight | size/line-height | family */
+font: italic small-caps bolder 16px/3 cursive;
+
+/* style | variant | weight | stretch | size/line-height | family */
+font: italic small-caps bolder condensed 16px/3 cursive;
+```
+
+### CSS3 Postion
+
+#### Position
+
+* static : default.  일반적으로 사용할 일은 없지만, 이미 설정된 position 값을 무력화하기 위해 사용.
+* relative :  기본위치(static)을 기준으로 좌표 값으로 이동.
+* absolute : 가장 가까이 있는 부모요소 또는 조상요소(static 제외)를 기준으로 좌표 이동. static 인 경우 document body를 기준. 부모요소를 배치의 기준으로 삼으려면 부모요소를 relative 속성을 부여. 
+* fixed : 
+
+absolute 속성과 fixed 속성의 **width는 inline속성처럼 content에 맞게 변화됨**
+
+#### z-index : 큰 숫자일수록 화면 전면에 표시
+
+####overflow : 자식요소가 부모요소의 영역을 벗어났을때 처리방법
+
+* visible
+* hidden
+* scroll
+* auto
+* overflow-x , overflow-y : 특정 방향으로만 스크롤 표시
+
+### CSS Float
 
